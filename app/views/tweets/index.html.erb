@@ -13,3 +13,13 @@
 
 <%= link_to "New tweet", new_tweet_path %>
 <%= paginate @tweets %>
+
+<%= link_to 'Search Tweets', search_tweets_path %>
+
+<!-- O -->
+
+<%= form_tag search_tweets_path, method: :get do %>
+  <%= text_field_tag :query, params[:query], placeholder: 'Search tweets' %>
+  <%= submit_tag 'Search' %>
+<% end %>
+

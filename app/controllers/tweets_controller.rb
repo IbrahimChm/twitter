@@ -67,4 +67,10 @@ class TweetsController < ApplicationController
     def tweet_params
       params.require(:tweet).permit(:description, :user_name)
     end
+    
+    def search
+      @query = params[:query]
+      @tweets = Tweet.where('content LIKE ?', "%#{@query}%")
+    end
+    
 end
