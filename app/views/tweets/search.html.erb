@@ -1,16 +1,18 @@
 <h1>Search Results</h1>
 
 <%= form_tag search_tweets_path, method: :get do %>
-  <%= text_field_tag :query, params[:query], placeholder: 'Search tweets' %>
-  <%= submit_tag 'Search' %>
-<% end %>
+    <%= text_field_tag :query, params[:query], placeholder: 'Search tweets' %>
+    <%= submit_tag 'Search' %>
+  <% end %>
+  
 
-<% if @tweets.any? %>
+  <% if @tweets.any? %>
   <ul>
     <% @tweets.each do |tweet| %>
-      <li><%= tweet.content %></li>
+      <li><%= tweet.description %></li>
     <% end %>
   </ul>
 <% else %>
   <p>No tweets found.</p>
 <% end %>
+

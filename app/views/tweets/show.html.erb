@@ -8,3 +8,10 @@
 
   <%= button_to "Destroy this tweet", @tweet, method: :delete %>
 </div>
+
+<% if @tweet %>
+  <h1>Tweet</h1>
+  <p><%= @tweet.content %></p>
+<% else %>
+  <p>Tweet not found.</p>
+<% end %>

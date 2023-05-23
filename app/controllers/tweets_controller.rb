@@ -3,13 +3,20 @@ class TweetsController < ApplicationController
 
   # GET /tweets or /tweets.json
   def index
-    @tweets = Tweet.page(params[:page])
+    @tweets = Tweet.page(params[:page]).per(10)
   end
+  
   
   # GET /tweets/1 or /tweets/1.json
   def show
+    if params[:id] == 'search'
+      search
+      render 'search'
+    else
+      @tweet = Tweet.find(params[:id])
+    end
   end
-
+  
   # GET /tweets/new
   def new
     @tweet = Tweet.new
@@ -60,7 +67,12 @@ class TweetsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tweet
-      @tweet = Tweet.find(params[:id])
+      if params[:id] == 'search'
+        # No es necesario buscar un tweet cuando el ID es "search"
+        @tweet = nil
+      else
+        @tweet = Tweet.find(params[:id])
+      end
     end
 
     # Only allow a list of trusted parameters through.
@@ -70,7 +82,8 @@ class TweetsController < ApplicationController
     
     def search
       @query = params[:query]
-      @tweets = Tweet.where('content LIKE ?', "%#{@query}%")
+      @tweets = Tweet.where('description LIKE ?', "%#{@query}%")
     end
+    
     
 end

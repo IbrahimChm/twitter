@@ -6,12 +6,13 @@
   <% @tweets.each do |tweet| %>
     <%= render tweet %>
     <p>
-      <%= link_to "Show this tweet", tweet %>
+      <%= link_to "Show this tweet", tweet_path(tweet) %>
     </p>
   <% end %>
 </div>
 
 <%= link_to "New tweet", new_tweet_path %>
+
 <%= paginate @tweets %>
 
 <%= link_to 'Search Tweets', search_tweets_path %>
@@ -22,4 +23,5 @@
   <%= text_field_tag :query, params[:query], placeholder: 'Search tweets' %>
   <%= submit_tag 'Search' %>
 <% end %>
+
 
