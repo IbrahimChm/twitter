@@ -13,3 +13,54 @@
  *= require_tree .
  *= require_self
  */
+/* Estilos para la barra de navegación */
+.navbar {
+    background-color: #333;
+    padding: 10px;
+  }
+  
+  .navbar-brand {
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-item {
+    margin-left: 10px;
+  }
+  
+  .nav-link {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* Estilos para el botón de hamburguesa en pantallas pequeñas */
+  .navbar-toggler {
+    background-color: #fff;
+    border: none;
+    padding: 8px;
+    border-radius: 4px;
+  }
+  
+  .navbar-toggler-icon {
+    width: 20px;
+    height: 3px;
+    background-color: #333;
+  }
+  
+  /* Estilos para el botón de hamburguesa activo */
+  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background-color: #fff;
+  }
+  
+  /* Estilos para el menú desplegable */
+  .navbar-collapse {
+    justify-content: flex-end;
+  }
+  
+  
+  
